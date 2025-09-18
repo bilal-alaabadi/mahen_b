@@ -11,6 +11,25 @@ const GiftCardSchema = new mongoose.Schema(
   { _id: false }
 );
 
+const MeasurementsSchema = new mongoose.Schema(
+  {
+    // تفصيل العبايات
+    length: { type: String },
+    sleeveLength: { type: String },
+    width: { type: String },
+    design: { type: String },
+    color: { type: String },
+    buttons: { type: String },
+    // ملابس مناسبات
+    chestFrontWidth: { type: String },
+    sleeveFromShoulder: { type: String },
+    shoulderWidth: { type: String },
+    // عامة
+    notes: { type: String },
+  },
+  { _id: false }
+);
+
 const OrderSchema = new mongoose.Schema(
   {
     orderId: { type: String, required: true },
@@ -23,14 +42,7 @@ const OrderSchema = new mongoose.Schema(
         price: { type: Number, required: true }, // سعر الوحدة بالعملة الأساسية (ر.ع.)
         image: { type: String },
         category: { type: String },
-        measurements: {
-          length: { type: String },
-          sleeveLength: { type: String },
-          width: { type: String },
-          design: { type: String },
-          color: { type: String },
-          buttons: { type: String },
-        },
+        measurements: { type: MeasurementsSchema, default: undefined },
         // ✅ بطاقة الهدية على مستوى كل منتج
         giftCard: { type: GiftCardSchema, default: undefined },
       },
