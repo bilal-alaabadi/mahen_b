@@ -13,7 +13,8 @@ app.use(cookieParser());
 
 // ضع كل الدومينات المسموح بها هنا
 const allowedOrigins = [
-  "https://mahen-f.vercel.app",
+  "https://www.mahindesignss.com",
+  "https://mahindesignss.com",
   // للتطوير المحلي (اختياري):
   "http://localhost:5173",
   "http://localhost:3000",
